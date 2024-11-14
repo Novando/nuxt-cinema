@@ -32,16 +32,35 @@
 </script>
 
 <template>
-  <section id="promo" class="py-24 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-12">Promo</h2>
-    <splide :options="option">
-      <splide-slide v-for="(item, i) in sliders" :key="i">
-        <div class="bg-[#fefefe] text-[#0f0f0f] p-8 rounded-xl h-[21em]">
-          <div class="h-40 w-full"></div>
-          <h3 class="text-lg font-semibold mb-2">{{ item.title }}</h3>
-          <p>{{ shortStr(item.msg) }}</p>
-        </div>
-      </splide-slide>
-    </splide>
+  <section id="promo" class="bg-neutral-900">
+    <section class="py-24 max-w-5xl mx-auto px-10 lg:px-0">
+      <h2 class="text-3xl font-bold text-center mb-12">Promo</h2>
+      <section class="hidden md:block">
+        <ClientOnly>
+          <splide :options="option">
+            <splide-slide v-for="(item, i) in sliders" :key="i">
+              <div class="bg-[#fefefe] text-[#0f0f0f] p-8 rounded-xl h-[21em]">
+                <div class="h-40 w-full"></div>
+                <h3 class="text-lg font-semibold mb-2">{{ item.title }}</h3>
+                <p>{{ shortStr(item.msg) }}</p>
+              </div>
+            </splide-slide>
+          </splide>
+        </ClientOnly>
+      </section>
+      <section class="block md:hidden">
+        <ClientOnly>
+          <splide :options="{...option, perPage: 1}">
+            <splide-slide v-for="(item, i) in sliders" :key="i">
+              <div class="bg-[#fefefe] text-[#0f0f0f] p-8 rounded-xl h-[21em]">
+                <div class="h-40 w-full"></div>
+                <h3 class="text-lg font-semibold mb-2">{{ item.title }}</h3>
+                <p>{{ shortStr(item.msg) }}</p>
+              </div>
+            </splide-slide>
+          </splide>
+        </ClientOnly>
+      </section>
+    </section>
   </section>
 </template>

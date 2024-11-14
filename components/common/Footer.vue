@@ -5,9 +5,9 @@ import Phone from "~/components/common/svg/Phone.vue";
 </script>
 
 <template>
-  <footer class="bg-neutral-800 pt-20 pb-4">
-    <section class="grid grid-cols-2 gap-4 mx-auto max-w-7xl">
-      <section>
+  <footer class="bg-neutral-800 pt-20 px-12 lg:px-0 pb-4">
+    <section class="grid md:grid-cols-2 gap-4 mx-auto md:max-w-7xl mb-20">
+      <section class="mb-20 md:mb-0">
         <h2 class="text-4xl font-black mb-8">Bioskop Isekai</h2>
         <div class="flex gap-2 mb-4">
           <LocationDot class="mt-1" />
@@ -23,10 +23,12 @@ import Phone from "~/components/common/svg/Phone.vue";
           <p>(024) 55112233</p>
         </div>
       </section>
-      <section>
-
+      <section class="flex flex-col gap-2">
+        <p class="font-semibold text-xl">Site Shortcut</p>
+        <NuxtLink to="/reservation">Pesan Tiket</NuxtLink>
+        <NuxtLink to="/admin">Masuk Admin</NuxtLink>
       </section>
-      <p class="col-span-2 text-center">2024 (c) Bioskop Isekai. Made with proud by KkNov</p>
     </section>
+    <p class="col-span-2 text-center text-neutral-500">2024 (c) Bioskop Isekai. Made with proud by KkNov</p>
   </footer>
 </template>
