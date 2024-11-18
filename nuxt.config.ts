@@ -10,4 +10,9 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    public : {
+      apiUrl: 'http://localhost:3000/v1'
+    }
+  }
 })

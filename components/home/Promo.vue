@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import RightChevronCircle from "~/components/common/svg/RightChevronCircle.vue";
   import LeftChevronCircle from "~/components/common/svg/LeftChevronCircle.vue";
+  import {shortStr} from "~/utils/string";
 
 
   const sliders = ref([
@@ -25,10 +26,6 @@
     perMove: 1,
     gap: '1em',
   })
-
-  const shortStr = (val: string) => {
-    return `${val.slice(0, 64)}...`
-  }
 </script>
 
 <template>

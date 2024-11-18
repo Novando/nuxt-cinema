@@ -1,7 +1,6 @@
 <script setup lang="ts">
-
-import LocationDot from "~/components/common/svg/LocationDot.vue";
-import Phone from "~/components/common/svg/Phone.vue";
+  import LocationDot from "~/components/common/svg/LocationDot.vue";
+  import Phone from "~/components/common/svg/Phone.vue";
 </script>
 
 <template>
@@ -25,7 +24,7 @@ import Phone from "~/components/common/svg/Phone.vue";
       </section>
       <section class="flex flex-col gap-2">
         <p class="font-semibold text-xl">Site Shortcut</p>
-        <NuxtLink to="/reservation">Pesan Tiket</NuxtLink>
+        <NuxtLink to="/types/reservation">Pesan Tiket</NuxtLink>
         <NuxtLink to="/admin">Masuk Admin</NuxtLink>
       </section>
     </section>
