@@ -24,7 +24,7 @@
       </section>
       <section class="flex flex-col gap-2">
         <p class="font-semibold text-xl">Site Shortcut</p>
-        <NuxtLink to="/types/reservation">Pesan Tiket</NuxtLink>
+        <NuxtLink to="/reservation">Pesan Tiket</NuxtLink>
         <NuxtLink to="/admin">Masuk Admin</NuxtLink>
       </section>
     </section>
