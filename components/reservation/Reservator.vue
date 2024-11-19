@@ -60,8 +60,8 @@
 </script>
 
 <template>
-  <section id="reservator">
-    <section class="flex justify-center mx-auto gap-8 mb-20">
+  <section id="reservator" class="max-w-7xl mx-auto">
+    <section class="flex justify-left mx-auto gap-8 mb-20">
       <section v-for="(group, i) in screen?.config" :key="i">
         <section v-for="r in (screen?.rows ?? -1)+1" class="flex items-center" :key="r">
           <section v-if="i === 0" class="w-10">

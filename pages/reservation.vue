@@ -16,9 +16,9 @@
 
 <template>
   <main>
-    <section class="mx-auto max-w-7xl py-20">
+    <section class="mx-auto max-w-7xl py-20 px-8">
       <h1 class="text-2xl font-bold mb-16">Sedang Tayang</h1>
-      <section class="grid grid-cols-3 justify-items-center gap-10">
+      <section class="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-10">
         <div v-for="m in movies" :key="m.id" class="rounded-3xl bg-neutral-700 px-14 py-8 w-full" >
           <div class="grid grid-cols-1 content-between h-full">
             <div>

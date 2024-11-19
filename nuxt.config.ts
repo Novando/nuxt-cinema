@@ -4,15 +4,20 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['./assets/css/main.css'],
   pages: true,
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   runtimeConfig: {
     public : {
-      apiUrl: 'http://localhost:3000/v1'
+      apiUrl: 'http://localhost:3000/v1',
+      wsUrl: 'http://localhost:3000',
     }
-  }
+  },
+
+  modules: ['@pinia/nuxt']
 })

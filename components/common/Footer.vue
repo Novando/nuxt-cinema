@@ -25,7 +25,7 @@
       <section class="flex flex-col gap-2">
         <p class="font-semibold text-xl">Site Shortcut</p>
         <NuxtLink to="/reservation">Pesan Tiket</NuxtLink>
-        <NuxtLink to="/admin">Masuk Admin</NuxtLink>
+        <NuxtLink to="/login">Masuk Admin</NuxtLink>
       </section>
     </section>
     <p class="col-span-2 text-center text-neutral-500">2024 (c) Bioskop Isekai. Made with proud by KkNov</p>

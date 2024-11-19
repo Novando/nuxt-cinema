@@ -10,10 +10,13 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.7.0",
     "@vuepic/vue-datepicker": "^10.0.0",
     "axios": "^1.7.7",
     "dayjs": "^1.11.13",
     "nuxt": "^3.14.159",
+    "pinia": "^2.2.6",
+    "socket.io-client": "^4.8.1",
     "vue": "latest",
     "vue-multiselect": "^3.1.0",
     "vue-router": "latest"

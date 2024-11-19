@@ -62,7 +62,7 @@
         />
       </div>
     </section>
-    <section v-if="screen" class="">
+    <section v-if="screen" class="overflow-x-scroll px-4">
       <Reservator :selectedCinema="screen" />
     </section>
   </main>
