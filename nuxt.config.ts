@@ -14,8 +14,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public : {
-      apiUrl: 'http://localhost:3000/v1',
-      wsUrl: 'http://localhost:3000',
+      apiUrl: 'https://sentausa.arutek.com/v1',
+      wsUrl: 'https://sentausa.arutek.com',
     }
   },
 
