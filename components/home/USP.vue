@@ -1,5 +1,7 @@
 <script setup lang="ts">
   import Tiket from "~/components/common/svg/Tiket.vue";
+
+  const router = useRouter()
 </script>
 
 <template>
@@ -42,9 +44,9 @@
         </div>
       </section>
     </section>
-    <NuxtLink to="/reservation" class="mx-auto flex items-center hover:bg-rose-700 transition-colors gap-4 bg-rose-800 px-6 py-2 rounded-full font-semibold">
+    <button @click="router.push('/reservation')" class="mx-auto flex items-center hover:bg-rose-700 transition-colors gap-4 bg-rose-800 px-6 py-2 rounded-full font-semibold">
       Pesan Tiket
       <Tiket />
-    </NuxtLink>
+    </button>
   </section>
 </template>
