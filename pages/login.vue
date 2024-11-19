@@ -7,8 +7,6 @@
     pass: '',
   })
 
-  onBeforeMount(() => router.replace('/admin'))
-
   const login = async () => {
     try {
       const res = await post('/login', credential)
