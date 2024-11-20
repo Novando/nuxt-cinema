@@ -10,7 +10,7 @@
 
   const toast = useToastStore()
   const route = useRoute()
-  const isLoading = ref(true)
+  const isLoading = ref(false)
   const date = ref<Date|undefined>()
   const screen = ref<SeatDTO|undefined>()
   const screenOptions = ref<SeatDTO[]>([])
@@ -43,7 +43,7 @@
     <section v-if="isLoading">
       <Loading class="mx-auto" />
     </section>
-    <section>
+    <section v-else>
       <section class="mx-auto w-80">
         <label>
           <p class="mb-2">Tanggal Nonton</p>

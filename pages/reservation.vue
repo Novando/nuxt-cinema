@@ -7,7 +7,7 @@
   const toast = useToastStore()
   const isLoading = ref(true)
   const movies = ref<MoviesDTO[]>()
-  toast.addToast('test')
+
   const getMovies = async () => {
     try {
       const res = await get('/now-playing')
