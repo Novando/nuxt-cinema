@@ -1,14 +1,21 @@
 <script setup lang="ts">
   import type {MoviesDTO} from "~/types/reservation";
   import {shortStr} from "../utils/string";
-  import RightArrow from "~/components/common/svg/RightArrow.vue";
   import Tiket from "~/components/common/svg/Tiket.vue";
+  import Loading from "~/components/common/svg/Loading.vue";
 
+  const toast = useToastStore()
+  const isLoading = ref(true)
   const movies = ref<MoviesDTO[]>()
+  toast.addToast('test')
   const getMovies = async () => {
-    const res = await get('/now-playing')
-    console.log(res)
-    movies.value = listBuilder(res.data.keys, res.data.values)
+    try {
+      const res = await get('/now-playing')
+      movies.value = listBuilder(res.data.keys, res.data.values)
+      isLoading.value = false
+    } catch (x_x: any) {
+      toast.addToast(x_x.message, 'error')
+    }
   }
 
   onMounted(async () => await getMovies())
@@ -18,7 +25,10 @@
   <main>
     <section class="mx-auto max-w-7xl py-20 px-8">
       <h1 class="text-2xl font-bold mb-16">Sedang Tayang</h1>
-      <section class="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-10">
+      <section v-if="isLoading" class="w-full h-full">
+        <Loading class="mx-auto" />
+      </section>
+      <section v-else class="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-10">
         <div v-for="m in movies" :key="m.id" class="rounded-3xl bg-neutral-700 px-14 py-8 w-full" >
           <div class="grid grid-cols-1 content-between h-full">
             <div>

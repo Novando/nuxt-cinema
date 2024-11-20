@@ -2,14 +2,16 @@
   import type {OrderDTO} from "~/types/admin";
   import dayjs from "dayjs";
   import { io } from 'socket.io-client'
+  import Loading from "~/components/common/svg/Loading.vue";
 
   const rc = useRuntimeConfig().public
   const router = useRouter()
   const socket = io(`${rc.wsUrl}`, { transports: ['polling'] });
 
   const orderData = ref<OrderDTO[]>([])
-  const isLoaded = ref(false)
+  const isLoading = ref(true)
 
+  const toast = useToastStore()
   onBeforeMount(() => getData())
 
   socket.on("newBooking", (arg) => appendBook(arg))
@@ -27,9 +29,9 @@
       if (x_x.status === 401) {
         return await router.push('/logout')
       }
-      console.log(x_x)
+      toast.addToast(x_x.message, 'error')
     } finally {
-      isLoaded.value = true
+      isLoading.value = false
     }
   }
 </script>
@@ -48,7 +50,10 @@
       </section>
     </section>
   </nav>
-  <section class="overflow-x-scroll mx-4">
+  <section v-if="isLoading">
+    <Loading class="mx-auto" />
+  </section>
+  <section v-else class="overflow-x-scroll mx-4">
     <table v-if="orderData.length > 0" class="my-20 mx-auto text-nowrap border rounded">
       <thead>
       <tr class="bg-rose-700">

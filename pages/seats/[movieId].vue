@@ -6,9 +6,11 @@
   import type {SeatDTO} from "~/types/seats";
   import Multiselect from "vue-multiselect";
   import 'vue-multiselect/dist/vue-multiselect.min.css'
+  import Loading from "~/components/common/svg/Loading.vue";
 
+  const toast = useToastStore()
   const route = useRoute()
-  const isLoading = ref(false)
+  const isLoading = ref(true)
   const date = ref<Date|undefined>()
   const screen = ref<SeatDTO|undefined>()
   const screenOptions = ref<SeatDTO[]>([])
@@ -28,8 +30,8 @@
         i.startedAt = dayjs(i.startedAt).format('HH:mm:ss')
       }
       screen.value = undefined
-    } catch (x_x) {
-      console.log(x_x)
+    } catch (x_x: any) {
+      toast.addToast(x_x.message, 'error')
     } finally {
       isLoading.value = false
     }
@@ -38,32 +40,37 @@
 
 <template>
   <main id="reservation" class="py-20">
-    <section class="mx-auto w-80">
-      <label>
-        <p class="mb-2">Tanggal Nonton</p>
-        <VueDatePicker
-          class="mb-8"
-          v-model="date"
-          :disabled="isLoading"
-          :enable-time-picker="false"
-          :auto-apply="true"
-          :format="format"
-          :min-date="new Date()"
-          :max-date="dayjs().add(1, 'w').toDate()"/>
-      </label>
-      <div v-if="date">
-        <p class="mb-2">Pilih Jam</p>
-        <Multiselect
-          :allow-empty="false"
-          v-model="screen"
-          :options="screenOptions"
-          track-by="id"
-          label="startedAt"
-        />
-      </div>
+    <section v-if="isLoading">
+      <Loading class="mx-auto" />
     </section>
-    <section v-if="screen" class="overflow-x-scroll px-4">
-      <Reservator :selectedCinema="screen" />
+    <section>
+      <section class="mx-auto w-80">
+        <label>
+          <p class="mb-2">Tanggal Nonton</p>
+          <VueDatePicker
+            class="mb-8"
+            v-model="date"
+            :disabled="isLoading"
+            :enable-time-picker="false"
+            :auto-apply="true"
+            :format="format"
+            :min-date="new Date()"
+            :max-date="dayjs().add(1, 'w').toDate()"/>
+        </label>
+        <div v-if="date">
+          <p class="mb-2">Pilih Jam</p>
+          <Multiselect
+            :allow-empty="false"
+            v-model="screen"
+            :options="screenOptions"
+            track-by="id"
+            label="startedAt"
+          />
+        </div>
+      </section>
+      <section v-if="screen" class="overflow-x-scroll px-4">
+        <Reservator :selectedCinema="screen" />
+      </section>
     </section>
   </main>
 </template>

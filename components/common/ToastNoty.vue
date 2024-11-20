@@ -32,7 +32,7 @@ import {type ToastType, useToastStore} from '~/utils/toast';
       :key="toast.id"
       :class="['p-4 rounded shadow-lg text-white', toastClasses(toast.type)]">
       <div class="flex justify-between items-center">
-        <span>{{ toast.message }}/{{ toast.id }}</span>
+        <span>{{ toast.message }}</span>
         <button @click="removeToast(toast.id)" class="ml-4 text-white hover:text-gray-300">
           ✖
         </button>
