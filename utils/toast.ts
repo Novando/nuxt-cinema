@@ -20,8 +20,10 @@ export const useToastStore = defineStore('toast', {
       setTimeout(() => this.removeToast(id), duration); // Auto-remove toast after duration
     },
     removeToast(id: number) {
-      console.log('removed toast')
+      console.log('removed toast ', id)
+      console.log(this.toasts);
       this.toasts = this.toasts.filter((toast) => toast.id !== id);
+      console.log(this.toasts);
     },
   },
 });

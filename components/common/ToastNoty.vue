@@ -3,8 +3,6 @@ import {type ToastType, useToastStore} from '~/utils/toast';
 
   const toastStore = useToastStore();
 
-  const toasts = toastStore.toasts;
-
   function removeToast(id: number) {
     toastStore.removeToast(id);
   }
@@ -28,7 +26,7 @@ import {type ToastType, useToastStore} from '~/utils/toast';
 <template>
   <div class="fixed top-4 right-4 z-50 space-y-4">
     <div
-      v-for="toast in toasts"
+      v-for="toast in toastStore.toasts"
       :key="toast.id"
       :class="['p-4 rounded shadow-lg text-white', toastClasses(toast.type)]">
       <div class="flex justify-between items-center">
