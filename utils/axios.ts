@@ -6,7 +6,7 @@ export const get = async (path: string, param?: object) => {
     const res = await axios.get(`${rc.apiUrl}${path}`, {params: param})
     return res.data
   } catch (x_x: any) {
-    if (x_x.response.data) throw x_x.response.data
+    if (x_x.response.data) throw { ...x_x.response.data, status: x_x.status }
     throw x_x
   }
 }
@@ -17,7 +17,7 @@ export const post = async (path: string, body: object) => {
     const res = await axios.post(`${rc.apiUrl}${path}`, body)
     return res.data
   } catch (x_x: any) {
-    if (x_x.response.data) throw x_x.response.data
+    if (x_x.response.data) throw { ...x_x.response.data, status: x_x.status }
     throw x_x
   }
 }
@@ -35,7 +35,7 @@ export const getApiKey = async (path: string, param?: object) => {
     })
     return res.data
   } catch (x_x: any) {
-    if (x_x.response.data) throw x_x.response.data
+    if (x_x.response.data) throw { ...x_x.response.data, status: x_x.status }
     throw x_x
   }
 }
@@ -51,7 +51,7 @@ export const postApiKey = async (path: string, body: object) => {
     })
     return res.data
   } catch (x_x: any) {
-    if (x_x.response.data) throw x_x.response.data
+    if (x_x.response.data) throw { ...x_x.response.data, status: x_x.status }
     throw x_x
   }
 }

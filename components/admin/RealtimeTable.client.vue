@@ -26,6 +26,7 @@
       const res = await getApiKey('/order')
       orderData.value = listBuilder(res.data.keys, res.data.values)
     } catch (x_x: any) {
+      console.log(x_x)
       if (x_x.status === 401) {
         return await router.push('/logout')
       }
